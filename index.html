@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0b">
+<meta name="description" content="Vedant Bhayani — CODIGOOO. Web, app and software development.">
+<title>Vedant Bhayani — CODIGOOO</title>
+<style>
+:root{
+  --ink:#0a0a0b;--panel:#111214;--panel2:#17191b;--white:#f7f7f4;--muted:#a4a6a2;
+  --lime:#d4ff3f;--orange:#ff3d00;--violet:#7c5cff;--line:#303235;
+  --font:Inter, "Helvetica Neue", Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{background:var(--ink);color:var(--white);font-family:var(--font);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.canvas{height:100svh;width:100%;padding:clamp(12px,2.4vw,30px);display:grid;place-items:center;background:
+ radial-gradient(ellipse at 8% 8%,#d4ff3f12,transparent 30%),
+ radial-gradient(ellipse at 94% 88%,#7c5cff12,transparent 28%),
+ var(--ink)}
+.card{position:relative;width:min(1120px,100%);height:min(690px,100%);min-height:0;border:1px solid #393b3c;border-radius:24px;overflow:hidden;background:linear-gradient(125deg,#111214 0%,#0b0c0d 55%,#10110e 100%);box-shadow:0 30px 100px #0009;display:grid;grid-template-columns:1.03fr .97fr}
+.card:before{content:"";position:absolute;width:360px;height:360px;border:1px solid #d4ff3f24;border-radius:50%;left:-205px;top:60px;box-shadow:0 0 0 32px #d4ff3f05,0 0 0 65px #d4ff3f04;pointer-events:none}
+.left{padding:clamp(22px,3.5vw,46px);display:flex;flex-direction:column;position:relative;min-width:0}
+.right{border-left:1px solid var(--line);padding:clamp(20px,3vw,38px);display:flex;flex-direction:column;min-width:0;position:relative;background:linear-gradient(150deg,#ffffff03,transparent 45%)}
+.header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.logo{font-weight:950;letter-spacing:-.07em;font-size:clamp(19px,2.2vw,27px);white-space:nowrap}.logo .ooo{color:var(--lime)}
+.logo-sub{font-size:9px;letter-spacing:.19em;color:#b9bbb6;margin-top:3px}
+.avail{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);border:1px solid #43521f;border-radius:99px;padding:7px 9px;white-space:nowrap}
+.hero{margin:auto 0;position:relative;padding:22px 0}
+.eyebrow{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:9px}
+.eyebrow:before{content:"";width:22px;height:2px;background:var(--lime);display:block}
+h1{font-size:clamp(42px,6.5vw,76px);letter-spacing:-.075em;line-height:.88;margin:20px 0 17px;font-weight:900}
+h1 span{color:var(--lime)}
+.role{font-size:clamp(11px,1.2vw,14px);letter-spacing:.13em;text-transform:uppercase;font-weight:750}
+.desc{color:#b8bab5;font-size:clamp(12px,1.2vw,14px);line-height:1.6;max-width:330px;margin:15px 0 0}
+.big-mark{position:absolute;right:1px;bottom:-15px;font-weight:950;font-size:clamp(100px,16vw,180px);letter-spacing:-.12em;color:#ffffff04;line-height:.8;pointer-events:none;user-select:none}
+.bottom{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-top:auto}
+.contact-mini{display:grid;gap:8px;min-width:0}
+.contact-mini a{font-size:12px;color:#e8e9e5;display:flex;gap:9px;align-items:center;overflow-wrap:anywhere}
+.dot{color:var(--lime);font-size:14px;flex:none}
+.monogram{font-size:42px;font-weight:950;letter-spacing:-.12em;color:var(--white);line-height:1;white-space:nowrap}
+.monogram span{color:var(--lime)}
+.rule{height:1px;background:linear-gradient(90deg,var(--lime),#ffffff20,transparent);margin:22px 0}
+.section-label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#b8bbb4;display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}
+.section-label span:last-child{color:#6e726a}
+.services{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.service{border:1px solid #303235;background:linear-gradient(145deg,#191b1d,#111214);padding:12px;border-radius:13px;min-width:0;min-height:74px}
+.service .num{font-size:9px;color:var(--lime);letter-spacing:.13em}
+.service strong{display:block;font-size:clamp(11px,1.15vw,13px);margin-top:7px;letter-spacing:-.02em}
+.service small{color:var(--muted);font-size:10px;display:block;margin-top:3px}
+.project{margin-top:18px;border:1px solid #333639;border-radius:14px;padding:13px 14px;display:flex;justify-content:space-between;align-items:center;gap:12px;background:#ffffff03}
+.project-title{font-size:13px;font-weight:800}.project-sub{font-size:10px;color:var(--muted);margin-top:3px}
+.project-arrow{display:grid;place-items:center;width:35px;height:35px;background:var(--lime);color:#111;border-radius:50%;font-size:20px;flex:none}
+.cta{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--lime);color:#10110d;border-radius:14px;padding:13px 15px;margin-top:auto}
+.cta strong{font-size:13px;display:block}.cta small{font-size:10px;opacity:.75;display:block;margin-top:2px}
+.cta .arrow{font-size:22px;line-height:1}
+.actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px}
+.action{border:1px solid #343638;border-radius:11px;padding:10px 7px;display:flex;justify-content:center;align-items:center;gap:7px;font-size:10px;font-weight:750;background:#151719;color:var(--white);cursor:pointer;min-width:0}
+.action svg{width:15px;height:15px;flex:none;color:var(--lime)}
+.action:hover{border-color:var(--lime)}
+.footer{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-top:14px;color:#777b73;font-size:8px;letter-spacing:.15em;text-transform:uppercase}
+.footer a{color:#d4ff3f}
+#qrbox{position:fixed;inset:0;background:#000b;display:none;place-items:center;padding:20px;z-index:10}
+#qrbox.open{display:grid}
+.qrmodal{background:#111214;border:1px solid #3b3d3e;border-radius:20px;padding:24px;text-align:center;width:min(320px,100%);box-shadow:0 20px 70px #0009}
+.qrmodal h2{font-size:19px;margin:0 0 6px}.qrmodal p{font-size:12px;color:var(--muted);margin:0 0 16px}
+#qrcode{background:#fff;padding:10px;border-radius:12px;width:150px;height:150px;margin:0 auto 15px;display:grid;place-items:center}
+#qrcode img,#qrcode canvas{max-width:100%;height:auto!important}
+.close{background:var(--lime);color:#111;border:0;border-radius:10px;padding:10px 18px;font-weight:800;cursor:pointer}
+.toast{position:fixed;left:50%;bottom:16px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#eaffb3;color:#111;padding:10px 15px;border-radius:99px;font-size:12px;font-weight:800;transition:.2s;z-index:20;max-width:calc(100% - 24px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(min-width:1000px){.card{height:min(690px,calc(100svh - 48px))}}
+@media(max-width:680px){
+ .canvas{padding:9px}.card{width:100%;height:calc(100svh - 18px);border-radius:18px;grid-template-columns:1fr;grid-template-rows:.94fr 1.06fr;overflow:hidden}
+ .left{padding:17px 19px 14px}.right{border-left:0;border-top:1px solid var(--line);padding:14px 19px 15px}
+ .logo{font-size:19px}.logo-sub{font-size:7px}.avail{font-size:7px;padding:6px 7px}
+ .hero{padding:12px 0;margin:auto 0}h1{font-size:clamp(37px,10.2vw,55px);margin:12px 0 9px}.role{font-size:9px}.desc{font-size:10px;line-height:1.45;margin-top:8px;max-width:270px}
+ .bottom{margin-top:8px}.contact-mini{gap:5px}.contact-mini a{font-size:10px}.monogram{font-size:31px}.rule{margin:10px 0}
+ .section-label{font-size:8px;margin-bottom:8px}.services{gap:6px}.service{padding:8px 9px;min-height:57px;border-radius:10px}.service .num{font-size:7px}.service strong{font-size:10px;margin-top:4px}.service small{font-size:8px;margin-top:1px}
+ .project{margin-top:9px;padding:9px 10px;border-radius:11px}.project-title{font-size:11px}.project-sub{font-size:8px}.project-arrow{width:28px;height:28px;font-size:17px}
+ .cta{padding:9px 11px;border-radius:11px}.cta strong{font-size:11px}.cta small{font-size:8px}.cta .arrow{font-size:18px}
+ .actions{gap:5px;margin-top:7px}.action{padding:8px 4px;font-size:8px;gap:4px;border-radius:9px}.action svg{width:12px;height:12px}
+ .footer{font-size:6px;margin-top:8px}
+}
+@media(max-height:650px) and (min-width:681px){.card{height:calc(100svh - 24px)}.left,.right{padding:18px 25px}.hero{padding:10px 0}h1{font-size:54px;margin:12px 0}.rule{margin:12px 0}.service{min-height:61px;padding:9px}.project{margin-top:10px;padding:9px 12px}.cta{padding:9px 12px}.footer{margin-top:8px}}
+</style>
+</head>
+<body>
+<!-- EDIT YOUR LINKS / DETAILS HERE: update values in the CONFIG object below. -->
+<script>
+const CONFIG = {
+  name: "Vedant Bhayani",
+  firstName: "Vedant",
+  lastName: "Bhayani",
+  role: "Founder & Developer",
+  brand: "CODIGOOO",
+  phoneDisplay: "+91 96875 24884",
+  phoneInternational: "+919687524884",
+  whatsappNumber: "919687524884",
+  website: "https://codigooo.netlify.app/",
+  // Set this to the final public URL of THIS visiting card after hosting it.
+  cardUrl: "",
+  instagram: "",
+  linkedin: "",
+  email: ""
+};
+</script>
+<div class="canvas">
+<main class="card">
+  <section class="left">
+    <header class="header">
+      <a class="brand-link" id="brandLink" href="https://codigooo.netlify.app/" aria-label="CODIGOOO website">
+        <div class="logo">CODIG<span class="ooo">OOO</span><span style="font-size:.42em;vertical-align:top;letter-spacing:0">®</span></div>
+        <div class="logo-sub">WEB&nbsp; / &nbsp;APP&nbsp; / &nbsp;SOFTWARE&nbsp; / &nbsp;DESIGN</div>
+      </a>
+      <span class="avail">● Taking projects</span>
+    </header>
+    <div class="hero">
+      <div class="eyebrow">Independent digital studio</div>
+      <h1 id="headline">Vedant<br><span>Bhayani.</span></h1>
+      <div class="role" id="roleText">Founder &amp; Developer</div>
+      <p class="desc">Turning ideas into powerful digital experiences. Websites, apps and software built around your business.</p>
+      <div class="big-mark" aria-hidden="true">C°</div>
+    </div>
+    <div class="bottom">
+      <div class="contact-mini">
+        <a id="phoneLink" href="tel:+919687524884"><span class="dot">↗</span><span id="phoneText">+91 96875 24884</span></a>
+        <a id="siteTextLink" href="https://codigooo.netlify.app/" target="_blank" rel="noopener"><span class="dot">↗</span><span>codigooo.netlify.app</span></a>
+      </div>
+      <div class="monogram" aria-hidden="true">C<span>°</span></div>
+    </div>
+  </section>
+  <section class="right">
+    <div class="section-label"><span>01 / Capabilities</span><span>What I build</span></div>
+    <div class="services">
+      <article class="service"><div class="num">01 — WEB</div><strong>Web Development</strong><small>Fast. Responsive. Built to convert.</small></article>
+      <article class="service"><div class="num">02 — APP</div><strong>App Development</strong><small>Useful digital products, made real.</small></article>
+      <article class="service"><div class="num">03 — DESIGN</div><strong>UI / UX Design</strong><small>Clear interfaces. Thoughtful detail.</small></article>
+      <article class="service"><div class="num">04 — SYSTEMS</div><strong>Custom Software</strong><small>Tools and workflows that work smarter.</small></article>
+    </div>
+    <a class="project" id="portfolioLink" href="https://codigooo.netlify.app/" target="_blank" rel="noopener">
+      <div><div class="section-label" style="margin:0 0 5px;color:var(--lime)">02 / Selected work</div><div class="project-title">Explore CODIGOOO</div><div class="project-sub">See the studio, services &amp; projects</div></div>
+      <span class="project-arrow">↗</span>
+    </a>
+    <div class="cta" id="whatsappCta" role="group" aria-label="Start a project on WhatsApp">
+      <div><strong>Have a project in mind?</strong><small>Let’s turn your idea into something real.</small></div><a class="arrow" id="whatsappArrow" href="https://wa.me/919687524884?text=Hi%20Vedant%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener" aria-label="Message Vedant on WhatsApp">↗</a>
+    </div>
+    <div class="actions">
+      <button class="action" id="saveContact" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M4 20a8 8 0 0 1 16 0"/><path d="M19 8v6m-3-3h6"/></svg>Save contact</button>
+      <button class="action" id="showQR" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zm5 0h2m-7 5h3m2-2v4"/></svg>Show QR</button>
+      <button class="action" id="shareCard" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.7 10.7 6.6-4.4m-6.6 7 6.6 4.4"/></svg>Share card</button>
+    </div>
+    <footer class="footer"><span>CODIGOOO® · Digital studio</span><a id="footerSite" href="https://codigooo.netlify.app/" target="_blank" rel="noopener">Open website ↗</a></footer>
+  </section>
+</main>
+</div>
+<div id="qrbox" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
+ <div class="qrmodal"><h2 id="qrTitle">Scan to connect</h2><p>Open Vedant’s digital visiting card</p><div id="qrcode"></div><button class="close" id="closeQR" type="button">Done</button></div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const toastEl=$("toast");let toastTimer;
+function toast(message){toastEl.textContent=message;toastEl.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>toastEl.classList.remove("show"),2600)}
+function setLink(id,url){const el=$(id);if(url)el.href=url}
+const phoneDigits=CONFIG.phoneInternational.replace(/\D/g,"");
+$("headline").innerHTML=CONFIG.firstName+"<br><span>"+CONFIG.lastName+".</span>";
+$("roleText").textContent=CONFIG.role;
+$("phoneText").textContent=CONFIG.phoneDisplay;
+setLink("brandLink",CONFIG.website);setLink("siteTextLink",CONFIG.website);setLink("portfolioLink",CONFIG.website);setLink("footerSite",CONFIG.website);
+setLink("phoneLink","tel:"+CONFIG.phoneInternational);
+setLink("whatsappArrow","https://wa.me/"+CONFIG.whatsappNumber+"?text="+encodeURIComponent("Hi "+CONFIG.firstName+", I'd like to discuss a project."));
+function makeVCard(){
+ return ["BEGIN:VCARD","VERSION:3.0","N:"+CONFIG.lastName+";"+CONFIG.firstName+";;;","FN:"+CONFIG.name,"ORG:"+CONFIG.brand,"TITLE:"+CONFIG.role,"TEL;TYPE=CELL:"+CONFIG.phoneInternational,"URL:"+CONFIG.website,CONFIG.email?"EMAIL;TYPE=INTERNET:"+CONFIG.email:"","END:VCARD"].filter(Boolean).join("\r\n");
+}
+$("saveContact").addEventListener("click",()=>{
+ const blob=new Blob([makeVCard()],{type:"text/vcard;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");
+ a.href=url;a.download=CONFIG.name.replace(/\s+/g,"-")+"-CODIGOOO.vcf";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
+ toast("Contact downloaded — tap the file to save it to Contacts.");
+});
+const qrbox=$("qrbox");let qrMade=false;
+function showQR(){
+ qrbox.classList.add("open");
+ if(qrMade)return;
+ const target=CONFIG.cardUrl.trim()||location.href;
+ if(window.QRCode){$("qrcode").innerHTML="";new QRCode($("qrcode"),{text:target,width:130,height:130,colorDark:"#0a0a0b",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M});qrMade=true;}
+ else {$("qrcode").textContent="QR needs an internet connection.";qrMade=true;}
+}
+$("showQR").addEventListener("click",showQR);
+$("closeQR").addEventListener("click",()=>qrbox.classList.remove("open"));
+qrbox.addEventListener("click",e=>{if(e.target===qrbox)qrbox.classList.remove("open")});
+$("shareCard").addEventListener("click",async()=>{
+ const url=CONFIG.cardUrl.trim()||location.href;
+ const data={title:CONFIG.name+" — "+CONFIG.brand,text:"Connect with "+CONFIG.name+" at "+CONFIG.brand+".",url};
+ try{if(navigator.share)await navigator.share(data);else if(navigator.clipboard&&isSecureContext){await navigator.clipboard.writeText(url);toast("Visiting card link copied.");}else{prompt("Copy your visiting-card link:",url)}}catch(e){if(e.name!=="AbortError")toast("Sharing was cancelled or unavailable.");}
+});
+</script>
+</body>
+</html>
